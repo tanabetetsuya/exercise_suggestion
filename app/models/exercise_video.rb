@@ -1,0 +1,2 @@
+class ExerciseVideo < ApplicationRecord
+end

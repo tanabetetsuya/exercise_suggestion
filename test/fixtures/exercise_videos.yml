@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  published_at: 2021-08-19 23:00:31
+  channel_title: MyString
+  video_id: MyString
+  user_id: 1
+
+two:
+  title: MyString
+  published_at: 2021-08-19 23:00:31
+  channel_title: MyString
+  video_id: MyString
+  user_id: 1
