@@ -1,0 +1,36 @@
+<div class="container" style="mx-auto; margin-top: 50px;">
+    <div class="row">
+      <div class="d-flex flex-wrap justify-content-center bd-highlight">
+        <% @youtube_data.items.each do |item| %>
+        <%= form_with model: @exercise_video, url: '/exercise_videos', method: :post,  local: true do |f| %>
+            <% snippet = item.snippet %>
+              <div class="col-lg-2">
+               <div class="card mb-3 mt-3" style="width: 200px; height: auto;">
+                 <div class="card-image-top mb-3"><iframe width="200" height="180" src="https://www.youtube.com/embed/<%= item.id.video_id %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                 <div class="card-body">
+                   <p class="card-text text-center">
+                     <%= snippet.title %>
+                     <%= snippet.published_at.strftime("%Y年%m月%d日 %H:%M:%S") %>
+                     <%= snippet.channel_title %>
+                     <% @exercise_video.title = snippet.title %>
+                     <% @exercise_video.published_at = snippet.published_at %>
+                     <% @exercise_video.channel_title = snippet.channel_title %>
+                     <% @exercise_video.video_id = item.id.video_id %>
+                     <% @exercise_video.user_id = current_user.id %>
+                     <%= f.hidden_field :title, :value => @exercise_video.title %>
+                     <%= f.hidden_field :published_at, :value => @exercise_video.published_at %>
+                     <%= f.hidden_field :channel_title, :value => @exercise_video.channel_title %>
+                     <%= f.hidden_field :video_id, :value => @exercise_video.video_id %>
+                     <%= f.hidden_field :user_id, :value => @exercise_video.user_id %>
+                   </p>
+                   <p class="card-text text-center">
+                      <%= f.submit '登録' %>
+                   </p>
+                 </div>
+               </div>
+             </div>
+            <% end %>
+            <% end %>
+           </div>
+         </div>
+       </div>
