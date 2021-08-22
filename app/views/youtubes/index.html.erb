@@ -4,7 +4,7 @@
         <% @youtube_data.items.each do |item| %>
         <%= form_with model: @exercise_video, url: '/exercise_videos', method: :post,  local: true do |f| %>
             <% snippet = item.snippet %>
-              <div class="col-lg-2">
+              <div class="col-lg-2 col-2">
                <div class="card mb-3 mt-3" style="width: 200px; height: auto;">
                  <div class="card-image-top mb-3"><iframe width="200" height="180" src="https://www.youtube.com/embed/<%= item.id.video_id %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
                  <div class="card-body">

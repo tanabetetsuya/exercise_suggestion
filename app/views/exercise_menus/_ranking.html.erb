@@ -27,7 +27,7 @@
       <div class="row border bg-white" style="height: auto;">
         <div class="d-flex flex-wrap justify-content-center" style="width: 100%; height: auto !important;">
           <% exercise_menu.today_exercises.each do |today_exercise| %>
-          <div class="col-lg-3" style="mx-auto">
+          <div class="col-lg-3 col-3" style="mx-auto">
             <div class="card mt-3 mb-3" style="width: 200px;">
               <div class="card-image-top mb-3"><iframe class="card-img-top" width="200" height="180" src="https://www.youtube.com/embed/<%= today_exercise.video_id %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
               <div class="cord-body" style="height: auto;">
