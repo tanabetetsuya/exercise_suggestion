@@ -29,7 +29,8 @@ class User < ApplicationRecord
         user = User.new(
           name: auth.info.name,
           email: auth.info.email,
-          emclypted_password: Devise.friendly_token.first(7),
+          enclypted_password: Devise.friendly_token.first(7),
+          profile_image: auth.info.image,
         )
         sns = SnsCredential.new(
           uid: auth.uid,
@@ -45,7 +46,8 @@ class User < ApplicationRecord
       user = User.new(
         name: auth.info.name,
         email: auth.info.email,
-        emclypted_password: Devise.friendly_token.first(7),
+        enclypted_password: Devise.friendly_token.first(7),
+        profile_image: auth.info.image,
       )
     end
     return {user: user}
