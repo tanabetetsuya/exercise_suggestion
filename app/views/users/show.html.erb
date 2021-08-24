@@ -24,9 +24,9 @@
         <% @exercise_menus.each do |exercise_menu| %>
         <div class="d-flex flex-wrap border bg-light" style="margin: 50px 0px 50px 0px;">
           <h5 class="text-center"><%= exercise_menu.created_at.strftime("%Y年%m月%d日 %H:%M:%S") %>作成の運動メニュー</h5>
-          <span><%= link_to '削除', exercise_menu_path(exercise_menu.id), method: :delete, data: {confirm: '運動メニューを削除しますか?'}, class: "btn btn-danger pl-5 pb-5" %></span>
+          <span><%= link_to '削除', exercise_menu_path(exercise_menu.id), method: :delete, data: {confirm: '運動メニューを削除しますか?'}, class: "btn btn-danger" %></span>
           <% exercise_menu.today_exercises.each do |today_exercise| %>
-          <div class="card mb-3 mx-auto" style="max-width: 540px;">
+          <div class="card mt-3 mb-3 mx-auto" style="max-width: 540px;">
             <div class="row">
               <div class="col-md-4">
                 <div><iframe  class="bd-placeholder-img" width="200" height="280" src="https://www.youtube.com/embed/<%= today_exercise.video_id %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
