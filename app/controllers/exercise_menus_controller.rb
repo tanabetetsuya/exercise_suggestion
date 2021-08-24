@@ -41,6 +41,13 @@ class ExerciseMenusController < ApplicationController
     @exercise_menu = ExerciseMenu.find(params[:id])
   end
 
+  def destroy
+    exercise_menu = ExerciseMenu.find(params[:id])
+    exercise_menu.destroy
+    exercise_menu.today_exercises.destroy_all
+    redirect_to exercise_menus_path
+  end
+
   private
   def exercise_menu_params
     params.require(:exercise_menu).permit(:user_id, :exercise_purpose, :exercise_goal)

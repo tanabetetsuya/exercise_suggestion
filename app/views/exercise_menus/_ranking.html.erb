@@ -20,6 +20,11 @@
             <tr>
               <th>メールアドレス</th>
               <td><%= exercise_menu.user.email %></td>
+              <% if exercise_menu.user == current_user %>
+              <td>
+                <%= link_to '削除', exercise_menu_path(exercise_menu.id), method: :delete, data: {confirm: '運動メニューを削除しますか?'}, class: "btn btn-danger" %>
+              </td>
+              <% end %>
             </tr>
           </table>
         </div>

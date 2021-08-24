@@ -8,7 +8,7 @@ devise_for :users, controllers: {
 resources :users, only: [:show, :edit, :update, :index]
 root to: 'homes#top'
 post '/confirmation' => 'exercise_menus#confirmation'
-resources :exercise_menus, only: [:new, :create, :show, :index] do
+resources :exercise_menus, only: [:new, :create, :show, :index, :destroy] do
   resources :comments, only: [:index, :create, :destroy]
   resource :likes, only: [:create, :destroy]
 end
