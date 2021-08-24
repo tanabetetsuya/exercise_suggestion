@@ -12,6 +12,10 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    comment = Comment.find_by(id: params[:id], exercise_menu_id: params[:exercise_menu_id])
+    comment.user_id = current_user.id
+    comment.destroy
+    redirect_to comments_path
   end
 
   def index
