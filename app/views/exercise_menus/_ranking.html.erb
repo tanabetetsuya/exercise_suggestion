@@ -48,6 +48,19 @@
           <div class="d-flex justify-content-between mt-5">
             <p>コメント:<%= exercise_menu.comments.count %>件 <%= link_to 'コメント一覧へ', exercise_menu_comments_path(exercise_menu.id) %></p>
             <div class="text-align-right">
+              <p>
+                ♡️ <%= exercise_menu.likes.count %>いいね
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% else %>
+      <div class="row border bg-white">
+        <div class="col-lg-12">
+          <div class="d-flex justify-content-between mt-5">
+            <p>コメント:<%= exercise_menu.comments.count %>件 <%= link_to 'コメント一覧へ', exercise_menu_comments_path(exercise_menu.id) %></p>
+            <div class="text-align-right">
               <% if exercise_menu.liked_by?(current_user) %>
                  <p>
                   <%= link_to exercise_menu_likes_path(exercise_menu.id), method: :delete do %>
@@ -67,3 +80,4 @@
       </div>
       <% end %>
     </div>
+            
