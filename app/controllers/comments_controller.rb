@@ -12,11 +12,10 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    exercise_menu = ExerciseMenu.find(params[:exercise_menu_id])
     comment = Comment.find_by(id: params[:id], exercise_menu_id: params[:exercise_menu_id])
     comment.user_id = current_user.id
     comment.destroy
-    redirect_to exercise_menu_comments_path(exercise_menu.id)
+    redirect_to exercise_menus_path
   end
 
   def index
